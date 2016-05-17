@@ -21,9 +21,11 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)react {
+    double brightness = [[UIScreen mainScreen] brightness];
+    
+    CGAffineTransform rotationTransform = CGAffineTransformMakeRotation(brightness * M_PI - M_PI_2);
+    self.needleImageView.transform = rotationTransform;
 }
 
 @end
