@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge_background" translatesAutoresizingMaskIntoConstraints="NO" id="H9Z-sF-S9e">
+                                <rect key="frame" x="50" y="50" width="500" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="70D-SP-cpr"/>
+                                    <constraint firstAttribute="width" constant="500" id="NeU-A6-wDX"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gauge_needle" translatesAutoresizingMaskIntoConstraints="NO" id="oyV-BO-SNd">
+                                <rect key="frame" x="50" y="50" width="500" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="THH-i5-BNM"/>
+                                    <constraint firstAttribute="width" constant="500" id="gF7-ry-u8u"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oyV-BO-SNd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CeN-ww-qeU"/>
+                            <constraint firstItem="oyV-BO-SNd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Epy-xV-P0c"/>
+                            <constraint firstItem="H9Z-sF-S9e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Qii-hr-n6F"/>
+                            <constraint firstItem="H9Z-sF-S9e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="af7-pa-Amr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="needleImageView" destination="oyV-BO-SNd" id="t4K-4M-VTa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="gauge_background" width="220" height="220"/>
+        <image name="gauge_needle" width="256" height="257"/>
+    </resources>
 </document>
