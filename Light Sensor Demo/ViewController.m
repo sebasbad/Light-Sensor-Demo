@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *needleImageView;
+
 @end
 
 @implementation ViewController
@@ -17,11 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(react) name:UIScreenBrightnessDidChangeNotification object:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)react {
+    double brightness = [[UIScreen mainScreen] brightness];
+    
+    CGAffineTransform rotationTransform = CGAffineTransformMakeRotation(brightness * M_PI - M_PI_2);
+    self.needleImageView.transform = rotationTransform;
 }
 
 @end
